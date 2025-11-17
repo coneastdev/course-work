@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>minesweeper</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div id="controls">
+        <button onclick="generateMap()">generate</button> width <input id="widthInput" value="33"> height <input id="heightInput" value="14"> bombs % <input id="bombsInput" value="20" type="number"><button onclick="openZero()">open a 0</button>
+    </div>
+    <div id="game">
+        <button onclick="generateMap()" style="position: absolute; left: 40vw; top: 50vh; width: 20%; height: 6vh;">generate map</button>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
