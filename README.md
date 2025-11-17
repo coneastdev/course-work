@@ -12,5 +12,6 @@
 | name | course | date | description | link |
 | ------- | ------- | ------- | ------- | ------- |
 | geekyclips | DT | 2024 | An E-commerce site made for a college christmas competition where I had to design and advertise a fictional product for just geek. | [main/dt/geekyclipswebsite](https://coneastdev.github.io/course-work/dt/geekyclipswebsite) |
+| minesweeper | DT | 2024 | A simple minesweeper game. | [main/dt/minesweeper](https://coneastdev.github.io/course-work/dt/minesweeper/) |
 | typejs | DT | 2024 | A type test game made during brakes. | [main/dt/typejs](https://coneastdev.github.io/course-work/dt/typejs/) |
 | lens and light photos | DT | 2025 | A google site made for an assginment which requred the use of a CMS to advertise a ficional company. | [main/dt/lens & light CMS u7a3](https://coneastdev.github.io/course-work/dt/lens%20&%20light%20CMS%20u7a3/PUBLISHED/Home.html) |
