@@ -1,0 +1,20 @@
+lane mangemnt system {
+    book lanes
+    activate lanes
+    manage lane users {
+        names
+        bumpers
+        score
+    }
+}
+food and drink mangemenet system {
+    order 
+    display orders
+    remove orders
+    menu
+}
+anlytics dashbaord {
+    earnings
+    csutomers
+}
+arcade mangement system
