@@ -15,3 +15,4 @@
 | minesweeper | DT | 2024 | A simple minesweeper game. | [main/dt/minesweeper](https://coneastdev.github.io/course-work/dt/minesweeper/) |
 | typejs | DT | 2024 | A type test game made during brakes. | [main/dt/typejs](https://coneastdev.github.io/course-work/dt/typejs/) |
 | lens and light photos | DT | 2025 | A google site made for an assginment which requred the use of a CMS to advertise a ficional company. | [main/dt/lens & light CMS u7a3](https://coneastdev.github.io/course-work/dt/lens%20&%20light%20CMS%20u7a3/PUBLISHED/Home.html) |
+| tedex | DSD-Y1 | 2025 | A simple website which plays random TED talks, it was made during prototyping with other classmates in our project development unit. | [coneastdev/tedex](https://coneastdev.github.io/tedex/) |
