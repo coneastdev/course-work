@@ -5,7 +5,7 @@
 | course name | course full name | institute | year | langs | link |
 | -------- | ------- | ------- | ------- | ------- | ------- |
 | DT  | digital technology Level-2 | [mbro.ac.uk](https://www.mbro.ac.uk) | 2024/2024 | <img src="https://skillicons.dev/icons?i=html,css,js" /> | [main/dt](https://github.com/coneastdev/course-work/tree/main/dt) |
-| DSD Y1  | digital software devlopment year 1 T-Level | [mbro.ac.uk](https://www.mbro.ac.uk) | 2025/2026 | <img src="https://skillicons.dev/icons?i=py" /> | [main/dsd-y1](https://github.com/coneastdev/course-work/tree/main/dsd-y1) |
+| DSD Y1  | digital software devlopment year 1 T-Level | [mbro.ac.uk](https://www.mbro.ac.uk) | 2025/2026 | <img src="https://skillicons.dev/icons?i=py,js" /> | [main/dsd-y1](https://github.com/coneastdev/course-work/tree/main/dsd-y1) |
 
 ## github pages
 
