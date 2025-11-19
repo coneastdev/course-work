@@ -6,7 +6,8 @@ analytics = {
     "lanes": {
         "used": 0,
         "left": 20
-    }
+    },
+    "needsRestock": []
 }
 
 menu = {
@@ -40,23 +41,42 @@ menu = {
     }
 }
 
-lanes = {
-    "1": {
-        "ocupied": False,
-        "people": 0,
-        "roundsLeft": 0,
-        "level": 0,
-        "players": {
-            "john doe": {
-                "score": [[3,1], [9,1], [0, 0]],
-                "bumpers": False
-            }
-        }
-    }
+laneInfo = {
+    "maxPlayers": 6,
+    "lanes": 20,
+    "maxRounds": 5,
+    "vipLanes": [19, 20]
 }
 
+# "1": {
+#     "ocupied": True,
+#     "vip": False,
+#     "people": 1,
+#     "roundsLeft": 0,
+#     "round": 0,
+#     "players": {
+#         "john doe": {
+#             "score": [[3,1], [9,1], [0, 0]],
+#             "bumpers": False
+#         }
+#     }
+# }
+
+lanes = {}
+
+for i in range(1, laneInfo["lanes"] + 1):
+    lanes[str(i)] = {
+        "ocupied": False,
+        "vip": True if i in laneInfo["vipLanes"] else False,
+        "people": 0,
+        "roundsLeft": 0,
+        "round": 0,
+        "players": {}
+    }
+
 pricing = {
-    "adult": 899, # pennys
+    "elderly": 599, # pennys
+    "adult": 899,
     "child": 499
 }
 
@@ -78,22 +98,70 @@ offers = {
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
+# menu options
+
 def analytics():
-    print("unfinshed")
-    input("press enter to continue ")
+    print(f"""###### analytics ######
+customers today: {analytics['customers']}
+revenue today: £{analytics['revenue']/100:.2f}
+lanes used: {analytics['lanes']['used']}
+lanes left: {analytics['lanes']['left']}
+needs restock: {', '.join(analytics['needsRestock']) if len(analytics['needsRestock']) > 0 else 'none'}
+          """)
+    input("press enter to go back ")
 
 def laneManager():
-    print("unfinshed")
-    input("press enter to continue ")
+    print("###### lane manager ######")
+    pairs = []
+    for lane in lanes:
+        status = "ocupied" if lanes[lane]["ocupied"] else "free"
+        vip = " (VIP)" if lanes[lane]["vip"] else ""
+        pairs.append(f"lane {lane}{vip}: {status}")
+    for i in range(0, len(pairs), 4):
+        try:
+            print(f"{pairs[i]:<25}{pairs[i+1]:<25}{pairs[i+2]:<25}{pairs[i+3]}")
+        except IndexError:
+            print(f"{pairs[i]}")
+    selection = input("enter lane number to manage or press enter to go back $ ")
+    clear()
+    if selection in lanes:
+        lane = lanes[selection]
+        print(f"""###### managing lane {selection} ######
+status: {"ocupied" if lane["ocupied"] else "free"}
+vip: {"yes" if lane["vip"] else "no"}
+people: {lane["people"]}
+rounds left: {lane["roundsLeft"]}, round: {lane["round"]}
+players:""")
+        for player in lane["players"]:
+            info = lane["players"][player]
+            print(f"- {player}: score: {info['score']}, bumpers: {'yes' if info['bumpers'] else 'no'}")
+        print(f"1.{"book lane" if not lane['ocupied'] else "free lane"} 2.alter players 3.alter rounds")
+        selection = input("Enter option number $ ")
+    elif selection == "":
+        return
+    else:
+        print(f"{selection} is an invalid input, try again")
+        input("press enter to continue ")
 
 def foodAndDrinks():
-    print("unfinshed")
-    input("press enter to continue ")
+    print(f"""###### food and drinks ######
+
+    """)
+    input("press enter to go back ")
+
+def foodAndDrinks():
+    print(f"""###### food and drinks ######
+
+    """)
+    input("press enter to go back ")
 
 def arcadeManager():
-    print("unfinshed")
-    input("press enter to continue ")
+    print(f"""###### arcade manager ######
 
+    """)
+    input("press enter to go back ")
+
+# main menu
 
 def home():
     clear()
@@ -120,4 +188,6 @@ def home():
             print(f"{selection} is an invalid input, try again")
             input("press enter to continue ")
     home()
-home()
+
+if __name__ == "__main__":
+    home()
