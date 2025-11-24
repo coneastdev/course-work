@@ -1,0 +1,52 @@
+[
+    {
+        "loanID": 1,
+        "userName": "Alex Green",
+        "userID": "S12345",
+        "deviceType": "Laptop",
+        "deviceID": "L-001",
+        "lent": "2025-11-24",
+        "due": "2025-12-01",
+        "returned": "False"
+    },
+    {
+        "loanID": 2,
+        "userName": "John Doe",
+        "userID": "S54321",
+        "deviceType": "headphones",
+        "deviceID": "L-001",
+        "lent": "2025-10-23",
+        "due": "2025-12-01",
+        "returned": "False"
+    },
+    {
+        "loanID": 3,
+        "userName": "Jane Doe",
+        "userID": "S73453",
+        "deviceType": "laptop",
+        "deviceID": "L-002",
+        "lent": "2025-10-23",
+        "due": "2025-12-01",
+        "returned": "True"
+    },
+    {
+        "loanID": 4,
+        "userName": "John Smith",
+        "userID": "S54234",
+        "deviceType": "laptop",
+        "deviceID": "L-003",
+        "lent": "2025-10-23",
+        "due": "2025-11-25",
+        "returned": "False"
+    },
+    {
+        "loanID": 5,
+        "userName": "James Jones",
+        "userID": "S64573",
+        "deviceType": "mouse",
+        "deviceID": "L-001",
+        "lent": "2025-10-23",
+        "due": "2025-11-16",
+        "returned": "False"
+    }
+]
