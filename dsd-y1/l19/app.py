@@ -3,6 +3,7 @@ from datetime import datetime
 
 data = []
 
+
 def readData():
     with open("loans.json", "r") as f:
         return json.load(f)
@@ -11,6 +12,37 @@ def writeData():
     with open("loans.json", "w") as f:
         f.write(json.dump(data))
     
+def modify(id):
+    for loan in data:
+        if id == loan("laonID"):
+            print(f"\n{loan["loanID"]}. {loan["userName"]} ({loan["userID"]}) {loan["deviceType"]} [{loan["lent"]}] / [{loan["due"]}] ({loan["deviceID"]}) returned:{loan["returned"]}")
+            print("\nwhat would you like to change?\n1. return\n2. student details\n3. dates\n4. device\n5. deleate entry\n")
+            selection = input("Enter option number $ ")
+            match selection:
+                case "1":
+                    if input("Has the device been returend Y/n? $ ").lower == "y":
+                        loan["returned"] = "True"
+                    else:
+                        loan["returned"] = "False"
+
+                case "2":
+                    loan["userID"] = input("Enter the new student ID $ ")
+                    loan["userName"] = input("Enter the new name $ ")
+
+                case "3":
+                    loan["lent"] = input("Enter lent date, (YYYY/MM/DD) $ ")
+                    loan["due"] = input("Enter due date, (YYYY/MM/DD) $ ")
+
+                case "4":
+                    loan["deviceID"] = input("Enter the device ID (\"L-\"+3 numbers) $ ")
+                    loan["deviceType"] = input("Enter the device type $ ").lower()
+                
+                case "5":
+                    if input("Are you sure you want to delete this entry? Y/n $ ").lower() == "y":
+                        data.pop(loan)
+
+        
+
 def view():
     print("")
     for loan in data:
@@ -59,9 +91,6 @@ def search():
     if selection != "":
         print("")
 
-def modify():
-    print()
-
 def add():
     print()
 
@@ -76,7 +105,6 @@ def main():
             search()
         case "3":
             add()
-    input("\npress enter to continue | ")
     main()
 
 if __name__ == "__main__":
