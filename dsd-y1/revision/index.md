@@ -16,4 +16,4 @@
 
 | specisfication | description | link |
 | ------- | ------- | ------- |
-| 5.1 Business environments | Know the purpose and sectors of different types of organisations: | [/buissness/businessEnvironments.md]() |
+| 5.1 Business environments | Understand different types of organisations,  business models and stakeholders | [/buissness/businessEnvironments.md]() |
