@@ -6,11 +6,11 @@ from pathlib import Path
 import numpy as np
 import matplotlib as plt
 import pandas as pd
-#import kagglehub
+import kagglehub
 
 # Download latest version
-#path = kagglehub.dataset_download("joebeachcapital/30000-spotify-songs")
-path = str(Path.home()) + "/Downloads/30000-spotify-songs"
+path = kagglehub.dataset_download("joebeachcapital/30000-spotify-songs")
+#path = str(Path.home()) + "/Downloads/30000-spotify-songs"
 
 # settings
 QUESTIONS = 5
@@ -47,35 +47,38 @@ def start():
 
             print(f"What genre is the song \"{song.iloc[0]["track_name"]}\" by \"{song.iloc[0]["track_artist"]}\"?")
 
-            answers = [correct]
+            answers = []
+            answers.append(str(correct))
             
-            for i in range(1, MAX_ANSWERS_PER_QUESTION - 1):
+            for _ in range(1, MAX_ANSWERS_PER_QUESTION):
                 while True:
                     rngGenre = np.random.choice(genres)
                     if rngGenre not in answers:
-                        answers.append(rngGenre)
+                        answers.append(str(rngGenre))
                         break
 
-            for index, gen in enumerate(genres):
+            np.random.shuffle(answers)
+
+            for index, gen in enumerate(answers):
                 print(f"{index + 1}. {gen}")
             
             while True:    
                 try:
                     userInput = int(input("Enter number $ "))
-                    if userInput in range(1, len(genres) + 1):
+                    if userInput in range(1, len(answers) + 1):
                         break
                     else:
                         print("Out of range number")
                 except:
                     print("Invalid number")
             
-            if genres[int(userInput) - 1] == correct:
+            if answers[int(userInput) - 1] == correct:
                 print("Correct!")
             else:
                 print("Wrong!")
-                print(f"{correct}, you chose {genres[int(userInput) - 1]}")
+                print(f"{correct}, you chose {answers[int(userInput) - 1]}")
             
-            results.append([category, genres[int(userInput) - 1] == correct, correct, genres[int(userInput) - 1]])
+            results.append([category, answers[int(userInput) - 1] == correct, correct, answers[int(userInput) - 1]])
         
         # users is shown 4 songs and have to guess the song based on the artist
         # if category == "artists":
