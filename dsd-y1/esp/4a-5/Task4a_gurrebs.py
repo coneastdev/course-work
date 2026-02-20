@@ -110,8 +110,6 @@ def get_selected_item(startdate, enddate) -> pd.DataFrame:
     df2["Menu Item"] = df["Menu Item"]
     return df2
 
-    # return df3
-
 def get_weekly_value(df: pd.Series):
     weeklyRevenue = []
     weekIndex = []
@@ -134,17 +132,8 @@ main_menu = menu()
 if main_menu == 1:
 
     item = get_product_choice()
-    # start_date = get_start_date()
-    # end_date = get_end_date()
- 
-    # extracted_data = get_selected_item(item, start_date, end_date)
 
     df = pd.read_csv("./dsd-y1/esp/4a-5/Task4a_data.csv")
-    
-    #print("Here is the sales data for {} between dates {} and {}:".format(item, start_date, end_date))
-    
-    #print(extracted_data)
-
     df = df[df["Menu Item"] == item]
 
     lunch = df[df["Service"] == "Lunch"]
