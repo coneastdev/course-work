@@ -179,18 +179,24 @@ elif main_menu == 2:
  
     df = get_selected_item(start_date, end_date)
 
-    df = df.groupby("Menu Item")[0:-2].sum()
+    df = df.groupby("Menu Item").sum()
+    df = df.iloc[0:-2].reindex()
 
     sums = []
+    avg = []
 
-    for index, _ in enumerate(df["Menu Item"]):
-        sums.append(sum(df.loc(index)))
+    for index in df.index:
+        sums.append(sum(df.loc[index]))
+        avg.append(np.mean(df.loc[index]))
 
-    print(df.head())
-
-    plt.bar(df["Menu Item"], sums)
-
+    plt.bar(df.index + " sum", sums)
+    plt.bar(df.index + " avg", avg)
+    
+    plt.yticks(np.array(range((np.array(sums).max() // 25) + 5)) * 25)
+    plt.title(f"Total & Average Sales between {start_date} and {end_date}")
+    
+    plt.grid(True)
     plt.xlabel("Menu Items")
-    plt.ylabel("Total/Avg Revnue")
+    plt.ylabel("Total/Avg Revenue")
 
     plt.show()
