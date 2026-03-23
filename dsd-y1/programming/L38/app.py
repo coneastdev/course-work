@@ -11,6 +11,7 @@ map.columns = COLUMNS
 map.index = np.arange(1, len(map) + 1)
 
 current_map = map
+map_data = {"plr": ["B", "2"], "exit": ["F", "10"]}
 
 def display_maze():
     os.system("cls")
@@ -23,7 +24,10 @@ def check_win():
     return
 
 def game():
-    plrMovement = input("Enter direction to move $ ")
+    plrMovement = input("Enter direction to move $ ").lower()
+    match plrMovement:
+        case "n":
+            print()
     game()
 
 def main():
@@ -33,6 +37,9 @@ def main():
     print("3. quit")
 
     selection = input("Enter selection number $ ")
+    if selection == "1":
+        game()
     main()
 
-print(map)
+if __name__ == "__main__":
+    main()
