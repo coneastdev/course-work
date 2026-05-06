@@ -12,7 +12,7 @@ def cls():
         os.system("clear")
 
 
-def move_to(location: str):
+def move_to(location: str, current_location: str):
     cls()
     match(location):
         case "intro":
@@ -28,9 +28,9 @@ def move_to(location: str):
             while True:
                 direction = input("Enter the direction you want to go $ ")
                 if direction.lower() in ["e", "east"]:
-                    move_to("path")
+                    move_to("path", current_location)
                 elif direction.lower() in ["w", "west"]:
-                    move_to("river")
+                    move_to("river", current_location)
                 else:
                     print(f"{direction} is not a valid direction.")
         
@@ -62,9 +62,9 @@ def move_to(location: str):
                 while True:
                     direction = input("Enter the direction you want to go $ ")
                     if direction.lower() in ["e", "east"]:
-                        move_to("path")
+                        move_to("path", current_location)
                     elif direction.lower() in ["n", "north"]:
-                        move_to("woods")
+                        move_to("woods", current_location)
                     else:
                         print(f"{direction} is not a valid direction.")
             elif rng > 70:
@@ -77,9 +77,9 @@ def move_to(location: str):
                 while True:
                     direction = input("Enter the direction you want to go $ ")
                     if direction.lower() in ["e", "east"]:
-                        move_to("house")
+                        move_to("house", current_location)
                     elif direction.lower() in ["w", "west"]:
-                        move_to("intro")
+                        move_to("intro", current_location)
                     else:
                         print(f"{direction} is not a valid direction.")
             else:
@@ -87,7 +87,7 @@ def move_to(location: str):
                 while True:
                     direction = input("Enter the direction you want to go $ ")
                     if direction.lower() in ["e", "east"]:
-                        move_to("path")
+                        move_to("path", current_location)
                     else:
                         print(f"{direction} is not a valid direction.")
         case "river":
@@ -102,15 +102,15 @@ def move_to(location: str):
             while True:
                     direction = input("Enter the direction you want to go $ ")
                     if direction.lower() in ["w", "west"]:
-                        move_to("house")
+                        move_to("house", current_location)
                     elif direction.lower() in ["s", "south"]:
-                        move_to("intro")
+                        move_to("intro", current_location)
                     else:
                         print(f"{direction} is not a valid direction.")
 
         case _:
             print(f"{location} is an invalid location, going back to last location.")
-            move_to(current_location)
+            move_to(current_location, current_location)
 
 def intro():
     cls()
@@ -123,7 +123,7 @@ def intro():
     
     input("Press enter to continue $ ")
 
-    move_to("intro")
+    move_to("intro", "intro")
 
 if __name__ == "__main__":
     intro()
