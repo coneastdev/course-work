@@ -5,8 +5,8 @@ import pandas as pd
 PATH_TO_XLSX = ".\dsd-y1\misc\matplotlib\driving-licence-data-feb-2026.xlsx"
 
 def show_licence_holders_by_age():
-    age_range_labels = ["15-25", "26-36", "37-47", "48-58", "59-69", "70-80", "81-92", "93-103", "104-114"]
-    age_range_bins = [15, 26, 37, 48, 59, 70, 81, 93, 104, 115]
+    age_range_labels = ["0-14", "15-25", "26-36", "37-47", "48-58", "59-69", "70-80", "81-92", "93-103", "104-114"]
+    age_range_bins = [0, 15, 26, 37, 48, 59, 70, 81, 93, 104, 115]
 
     df = pd.read_excel(PATH_TO_XLSX, "DRL0101- February 2026")
 
