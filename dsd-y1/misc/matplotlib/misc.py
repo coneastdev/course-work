@@ -13,20 +13,13 @@ def show_licence_holders_by_age():
     df["age_group"] = pd.cut(df["Age"], bins=age_range_bins, labels=age_range_labels, right=False)
     df = df.groupby('age_group', observed=False).sum().round()
 
-    w, x = 0.4, np.arange(len(age_range_labels))
     fig, ax = plt.subplots()
 
-    subplot_y_ticks = range(10) * (df["Full - Total"].max() // 10)
-    subplot_y_labels = np.array(range(10) * (df["Full - Total"].max() // 10)).astype(str)
+    ax.boxplot([df["Provisional Licences - Male"], df["Provisional Licences - Female"], df["Full Licences - Male"], df["Full Licences - Female"]])
 
-    ax.bar(x - w/2, df["Provisional Licences - Male"], width=w, label="Provisional Licence Male")
-    ax.bar(x - w, df["Provisional Licences - Female"], width=w, label="Provisional Licence Female")
-    ax.bar(x + w/2, df["Full Licences - Male"], width=w, label="Full Licence Male")
-    ax.bar(x + w, df["Full Licences - Female"], width=w, label="Full Licence Female")
-
-    plt.setp(ax, yticks=subplot_y_ticks, yticklabels=subplot_y_labels)
-    ax.set_xticklabels(age_range_labels)
-    fig.legend()
+    plt.setp(ax, yticklabels=age_range_labels)
+    ax.set_xticklabels(["Provisional Licences - Male", "Provisional Licences - Female", "Full Licences - Male", "Full Licences - Female"])
+    #fig.legend()
 
     ax.set_xlabel("Age ranges")
     ax.set_ylabel("Total Licence Holders")
@@ -35,7 +28,7 @@ def show_licence_holders_by_age():
 
 def main():
     print("##### bar charts.py #####")
-    print("1. licence holders by age ranges")
+    print("1. licence holders by age ranges (box chart)")
 
     selection = input("enter selection number $ ")
     match (selection):
